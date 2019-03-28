@@ -9,13 +9,15 @@ import { AppReducer } from './app.reducer';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieComponent } from './movie/movie.component';
 import { FilterControlsComponent } from './filter-controls/filter-controls.component';
+import { RatingBgPipe } from './rating-bg.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesListComponent,
     MovieComponent,
-    FilterControlsComponent
+    FilterControlsComponent,
+    RatingBgPipe
   ],
   imports: [
     BrowserModule,

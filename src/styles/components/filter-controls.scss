@@ -1,0 +1,96 @@
+$filter-controls-colour: hsl(0, 100%, 100%);
+$tablet-bp: 600px;
+
+.filter-controls {
+  &__wrapper {
+    margin: 0 0 25px;
+    color: $filter-controls-colour;
+    position: relative;
+    padding: 20px 0 10px;
+  }
+
+  &__toggle-options {
+    @extend %button;
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    color: $filter-controls-colour;
+  }
+
+  &__add-filters {
+    padding: 10px;
+
+    @include mq($tablet-bp) {
+      display: flex;
+    }
+
+    &.--open {
+      background: hsla(0, 5%, 5%, .1);
+      border-top: 1px solid hsla(0, 10%, 10%, .2);
+      border-bottom: 1px solid hsla(0, 100%, 100%, .2);
+    }
+  }
+
+  &__section-header {
+    font-size: 12px;
+    margin: 10px 0;
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+
+  &__inputs-wrapper {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    width: 100%;
+  }
+
+  &__genre-filters,
+  &__rating-filter {
+    margin: 20px 0;
+
+    @include mq($tablet-bp) {
+      flex: 1;
+      padding: 10px;
+    }
+  }
+
+  &__genre {
+    display: inline-block;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 100;
+  }
+
+  &__genre-checkbox {
+    margin-right: 10px;
+  }
+
+  &__info-wrapper {
+    width: 100%;
+
+    @include mq($tablet-bp) {
+      display: flex;
+    }
+  }
+
+  &__set-filters {
+    @include mq($tablet-bp) {
+      flex: 1;
+    }
+  }
+
+  &__rating-wrapper {
+    padding: 0 10px;
+
+    @include mq($tablet-bp) {
+      flex: 1;
+    }
+  }
+
+  &__rating-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}

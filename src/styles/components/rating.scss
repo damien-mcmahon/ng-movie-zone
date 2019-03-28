@@ -1,0 +1,41 @@
+$ratings-colour: hsl(0, 100%, 100%);
+$desktop-bp: 890px;
+
+.ratings {
+  &__wrapper {
+    color: $ratings-colour;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include mq($desktop-bp) {
+      flex-direction: row;
+    }
+  }
+
+  &__rating {
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+  }
+
+  &__label {
+    font-size: 10px;
+  }
+
+  &__radio {
+    display: block;
+    text-align: center;
+    margin: 5px;
+  }
+
+  &__clear-rating {
+    @extend %button;
+    color: $ratings-colour;
+    text-transform: uppercase;
+    font-weight: 100;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+  }
+}

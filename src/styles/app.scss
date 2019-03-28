@@ -1,0 +1,32 @@
+$app-bg-start-colour: #668BBB;
+$app-bg-mid-colour: #7E779B;
+$app-bg-end-colour: #856580;
+$app-colour: hsl(0, 10%, 100%);
+$larger-screens-bp: 1000px;
+
+.app {
+  &__wrapper {
+    background: linear-gradient($app-bg-start-colour, $app-bg-mid-colour, $app-bg-end-colour);
+    color: $app-colour;
+    min-height: 100vh;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin: 0;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 100;
+
+    @include mq($larger-screens-bp) {
+      font-size: 36px;
+      padding: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+  }
+}

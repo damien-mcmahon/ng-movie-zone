@@ -1,0 +1,30 @@
+$mobile-tablet-transition-bp: 600px;
+$large-tablet-transition-bp: 800px;
+
+.movie-list {
+  &__if-wrapper {
+    display: grid;
+    grid-template-columns: 45vw 45vw;
+    grid-gap: 10vw;
+
+    @include mq($mobile-tablet-transition-bp) {
+      grid-template-columns: 20vw 20vw 20vw;
+      grid-gap: 10vw;
+    }
+
+    @include mq($large-tablet-transition-bp) {
+      margin: 0 5vw;
+      grid-template-columns: 15vw 15vw 15vw 15vw 15vw;
+      grid-gap: 3vw;
+    }
+  }
+
+  &__empty {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

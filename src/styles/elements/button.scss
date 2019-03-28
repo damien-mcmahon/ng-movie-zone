@@ -1,0 +1,7 @@
+$button-bg: transparent;
+
+%button {
+  border-radius: 5px;
+  border: 1px solid;
+  background: $button-bg;
+}

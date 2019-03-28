@@ -1,0 +1,38 @@
+$selected-filters-colour: hsl(0, 100%, 100%);
+$selected-filters-button-bg: hsla(0, 50%, 50%, .9);
+
+.selected-filters {
+  &__wrapper {
+    padding: 10px;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 16px;
+  }
+
+  &__filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__filter {
+    border-radius: 20px;
+    padding: 5px 10px;
+    background: hsla(0, 0%, 0%, .2);
+    font-size: 14px;
+    font-weight: 100;
+    margin: 5px;
+  }
+
+  &__button {
+    @extend %button;
+    margin-left: 5px;
+    border-radius: 50%;
+    font-size: 14px;
+    background: $selected-filters-button-bg;
+    color: $selected-filters-colour;
+    border: none;
+    padding: 3px 5px;
+  }
+}
