@@ -17,7 +17,7 @@ export const initialState = {
 };
 
 
-export function AppReducer(state = initialState, action: fromAppActions.ActionsUnion) {
+export function AppReducer(state: AppState = initialState, action: fromAppActions.ActionsUnion) {
   const { type, payload } = action;
 
   switch (type) {

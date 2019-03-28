@@ -1,0 +1,7 @@
+<div class="movies-list__wrapper">
+  <ul class="movies-list__list" *ngIf="movies">
+    <li *ngFor="let movie of movies | async">
+      {{movie.title}} {{movie.rating}}
+    </li>
+  </ul>
+</div>

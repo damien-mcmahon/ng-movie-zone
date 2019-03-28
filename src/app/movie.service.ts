@@ -7,6 +7,14 @@ import { Movie } from '../models/movie';
 import { Genre } from '../models/genre';
 import { AppData } from '../models/app-data';
 
+const alphabetise = (mA, mB) => {
+  const { name: nameA} = mA;
+  const { name: nameB} = mB;
+
+  return nameA < nameB ? -1 : 1;
+};
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +29,7 @@ export class MovieService {
   }
 
   private movieAdaptor = (config: any) => (movie: any): Movie => {
-    const { title, vote_average: rating, poster_path } = movie;
+    const { genre_ids: genres, title, vote_average: rating, poster_path } = movie;
     const { images } = config;
     const POSTER_SIZE_INT = 4;
     const posterURL = `${images.base_url}${images.poster_sizes[POSTER_SIZE_INT]}${poster_path}`;
@@ -29,12 +37,14 @@ export class MovieService {
     return {
       title,
       rating,
-      posterURL
+      posterURL,
+      genres
     };
   }
 
   adaptData = ([config, {results: movies}, { genres}]): AppData => {
     const newMovies = movies.map(this.movieAdaptor(config));
+    newMovies.sort(alphabetise);
     const foundGenres = new Set();
     movies.forEach(this.findGenres(genres, foundGenres));
     const newGenres = Array.from(foundGenres);
