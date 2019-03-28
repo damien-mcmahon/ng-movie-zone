@@ -22,11 +22,8 @@ const filterRating = (rating: number) => (movie: Movie): boolean => movie.rating
 
 export const getApp = (state: LiveAppState) => state.app;
 export const getSelectedGenres = createSelector(getApp, ({selectedGenres}) => selectedGenres);
-
 export const getRatingFilter = createSelector(getApp, ({ratingFilter}) => ratingFilter);
-
 export const getMovies = createSelector(getApp, state => state.movies);
-
 export const getVisibleMovies = createSelector(
   getMovies,
   getRatingFilter,
