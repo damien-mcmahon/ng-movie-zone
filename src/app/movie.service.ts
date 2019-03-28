@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { API } from '../config/api';
 import { Movie } from '../models/movie';
 import { Genre } from '../models/genre';
+import { AppData } from '../models/app-data';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class MovieService {
   private NOW_PLAYING = 'movie/now_playing';
   private GENRES = 'genre/movie/list';
 
-  private makeAPIPath = path => {
+  private makeAPIPath = (path: string): string => {
     return `${this.baseURL}${path}?api_key=${API.key}`;
   }
 
@@ -32,7 +33,7 @@ export class MovieService {
     };
   }
 
-  adaptData = ([config, {results: movies}, { genres}]) => {
+  adaptData = ([config, {results: movies}, { genres}]): AppData => {
     const newMovies = movies.map(this.movieAdaptor(config));
     const foundGenres = new Set();
     movies.forEach(this.findGenres(genres, foundGenres));
@@ -62,7 +63,7 @@ export class MovieService {
     return this.http.get(this.makeAPIPath(this.GENRES));
   }
 
-  getMovies() {
+  getMovies(): Observable<any> {
     return forkJoin(
       this.getConfigInfo(),
       this.getMovieInfo(),
